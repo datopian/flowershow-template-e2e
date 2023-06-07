@@ -1,0 +1,10 @@
+{
+  "extends": ["plugin:playwright/playwright-test"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}
