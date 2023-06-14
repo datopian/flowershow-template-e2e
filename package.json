@@ -1,0 +1,11 @@
+{
+  "name": "flowershow-template-e2e",
+  "version": "1.0.0",
+  "description": "Flowershow template e2e tests",
+  "devDependencies": {
+    "@playwright/test": "^1.35.0"
+  },
+  "scripts": {
+    "test": "playwright test"
+  }
+}
