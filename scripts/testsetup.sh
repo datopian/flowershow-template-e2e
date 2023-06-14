@@ -11,7 +11,6 @@ catch() {
   exit 1
 }
 
-degit https://github.com/datopian/flowershow-template $E2E_TEMP_DIR
 rm -rf $E2E_TEMP_DIR/content
 cp -r $CONTENT_DIR $E2E_TEMP_DIR/content
 
