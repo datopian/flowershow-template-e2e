@@ -34,7 +34,7 @@ export default defineConfig({
     command: 'npm run start --prefix test-app',
     port: 3000,
     reuseExistingServer: !process.env.CI,
-  }
+  },
   /* Configure projects for major browsers */
   projects: [
     {
