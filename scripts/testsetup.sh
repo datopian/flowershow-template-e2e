@@ -21,6 +21,6 @@ rm -rf $TEST_APP_DIR/content/*
 rsync -av --progress $CONTENT_DIR/ $TEST_APP_DIR/content
 
 cd $TEST_APP_DIR
-# npm install
-pnpm install --offline
+# pnpm install --offline
+npm install
 npm run export
