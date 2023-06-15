@@ -29,7 +29,12 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-
+  /* Run your local dev server before starting the tests */
+  webServer: {
+    command: 'npm run start --prefix test-app',
+    port: 3000,
+    reuseExistingServer: !process.env.CI,
+  }
   /* Configure projects for major browsers */
   projects: [
     {
@@ -66,12 +71,5 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ..devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
-
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    // command: 'npm run build && npm run start',
-    url: 'http://127.0.0.1:3000',
-    reuseExistingServer: !process.env.CI,
-  },
+  ]
 });
