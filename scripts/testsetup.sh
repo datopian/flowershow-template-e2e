@@ -1,19 +1,26 @@
 #!/bin/sh
 
-CONTENT_DIR=$1
-E2E_TEMP_DIR=$(mktemp -d)
+APP_DIR=$1
+CONTENT_DIR=./fixtures/content
+TEST_APP_DIR=test-app
 
-trap 'catch' ERR
+# if it doesnt exist, create TEST_APP_DIR in the root of this project
+# otherwise, first remove the dir and then create it
+if [ ! -d "$TEST_APP_DIR" ]; then
+  mkdir $TEST_APP_DIR
+else
+  rm -rf $TEST_APP_DIR
+  mkdir $TEST_APP_DIR
+fi
 
-catch() {
-  echo "Error occurred"
-  echo "See: $E2E_TEMP_DIR for artifacts"
-  exit 1
-}
+# copy contents of the app (apart from any paths ignored in .gitignore) to the test-app dir
+rsync -av --progress --exclude=.git --exclude-from=$APP_DIR/.gitignore $APP_DIR/ $TEST_APP_DIR
 
-rm -rf $E2E_TEMP_DIR/content
-cp -r $CONTENT_DIR $E2E_TEMP_DIR/content
+# replace /content in the test-app dir with /fixtures/content
+rm -rf $TEST_APP_DIR/content/*
+rsync -av --progress $CONTENT_DIR/ $TEST_APP_DIR/content
 
-cd $E2E_TEMP_DIR
-npm install
-npm run dev -- -p 3030 &
+cd $TEST_APP_DIR
+# npm install
+pnpm install --offline
+npm run export
