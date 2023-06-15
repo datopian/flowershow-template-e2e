@@ -6,6 +6,7 @@
     "@playwright/test": "^1.35.0"
   },
   "scripts": {
+    "testsetup": "./scripts/testsetup.sh",
     "test": "playwright test"
   }
 }
