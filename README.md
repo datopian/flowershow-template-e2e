@@ -25,6 +25,8 @@ Then run `test` script.
 npm run test
 ```
 
+See [this Playwright docs page](https://playwright.dev/docs/test-cli) to learn about different playwright CLI options, e.g. how to run only selected tests.
+
 ## Refresh `test-app/content` folder
 
 There is no need to run `testsetup` each time you add/edit some test pages to the fixture content folder. Run `testupdate` command instead, to update `test-app/content` folder.
