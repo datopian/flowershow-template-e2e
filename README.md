@@ -6,12 +6,12 @@ Although it's primary purpose is to test the Flowershow template, it can also be
 
 ## Run tests locally against Flowershow template or any Flowershow-based project
 
-Run `test:setup` script, passing the path to the Flowershow template (or any Flowershow-based project you want to run the tests against) as an argument.
+Run `testsetup` script, passing the path to the Flowershow template (or any Flowershow-based project you want to run the tests against) as an argument.
 
 ``` sh
-# npm run test:setup -- arg1
+# npm run testsetup -- arg1
 # e.g.
-npm run test:setup -- ../flowershow
+npm run testsetup -- ../flowershow
 ```
 
 The script will:
