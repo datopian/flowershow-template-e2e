@@ -46,4 +46,26 @@ test.describe.parallel("LHS sidebar (site-wide ToC)", () => {
     await link.click();
     await expect(page).toHaveURL("/Some%20Page%20With%20Spaces%20And%20No%20Title");
   });
+
+  test("correctly groups pages in the sidebar", async ({ page }) => {
+    await page.goto("/fixture-page");
+    const sidebar = page.getByTestId("lhs-sidebar")
+
+    const groupButton = sidebar.getByRole("button", { name: "Sidebar Group Test" });
+    await expect(groupButton).toHaveCount(1);
+    await groupButton.click();
+
+    // const group = page.locator("button").filter({ has: groupButton });
+    // await expect(group).toHaveCount(1);
+    // const groupElements = group.locator('div');
+    // await expect(groupElements).toHaveCount(3);
+
+    const nestedGroupButton = sidebar.getByRole("button", { name: "Nested Group" });
+    await expect(nestedGroupButton).toHaveCount(1);
+    // await nestedGroupButton.click();
+
+    // const nestedGroup = groupElements.getByRole("div").filter({ has: nestedGroupButton });
+    // const nestedGroupElements = nestedGroup.locator('div');
+    // await expect(nestedGroupElements).toHaveCount(2);
+  });
 });
