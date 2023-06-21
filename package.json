@@ -6,6 +6,7 @@
     "@playwright/test": "^1.35.0"
   },
   "scripts": {
+    "dev": "npm run dev --prefix test-app",
     "testsetup": "./scripts/testsetup.sh",
     "testupdate": "./scripts/testupdate.sh",
     "test": "playwright test"
