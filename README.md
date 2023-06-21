@@ -25,6 +25,14 @@ Then run `test` script.
 npm run test
 ```
 
+## Refresh `test-app/content` folder
+
+There is no need to run `testsetup` each time you add/edit some test pages to the fixture content folder. Run `testupdate` command instead, to update `test-app/content` folder.
+
+``` sh
+npm run testupdate
+```
+
 ## Use this project in your Flowershow-based project's CI
 
 Copy and adapt [this workflow](https://github.com/datopian/flowershow/blob/main/.github/workflows/e2e.yml).
