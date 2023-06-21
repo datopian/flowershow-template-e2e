@@ -34,4 +34,16 @@ test.describe.parallel("LHS sidebar (site-wide ToC)", () => {
       .click();
     await expect(page).toHaveURL("/blogtest");
   });
+
+  test("correctly renders a page with spaces in file name and no title", async ({ page }) => {
+    await page.goto("/fixture-page");
+    const sidebar = page.getByTestId("lhs-sidebar")
+
+    await expect(sidebar.getByText("Some%20Page%20With%20Spaces%20And%20No%20Title")).toHaveCount(0);
+
+    const link = sidebar.getByText("Some Page With Spaces And No Title");
+    await expect(link).toHaveCount(1);
+    await link.click();
+    await expect(page).toHaveURL("/Some%20Page%20With%20Spaces%20And%20No%20Title");
+  });
 });
