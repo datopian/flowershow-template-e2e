@@ -10,6 +10,7 @@
     "testsetup": "./scripts/testsetup.sh",
     "testsetup:clean": "./scripts/testsetup-clean.sh",
     "pretest": "npm run testsetup",
-    "test": "playwright test"
+    "test": "playwright test",
+    "testonly": "playwright test"
   }
 }
