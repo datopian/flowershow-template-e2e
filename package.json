@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "npm run dev --prefix test-app",
     "testsetup": "./scripts/testsetup.sh",
-    "testupdate": "./scripts/testupdate.sh",
+    "testsetup:clean": "./scripts/testsetup-clean.sh",
+    "pretest": "npm run testsetup",
     "test": "playwright test"
   }
 }

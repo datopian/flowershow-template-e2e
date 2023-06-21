@@ -6,34 +6,37 @@ Although it's primary purpose is to test the Flowershow template, it can also be
 
 ## Run tests locally against Flowershow template or any Flowershow-based project
 
-Run `testsetup` script, passing the path to the Flowershow template (or any Flowershow-based project you want to run the tests against) as an argument.
+### `testsetup:clean`
+
+Use this command to remove the previously tested project copy from the `test-app` folder, copy over the specified Flowershow project to it and install it's dependencies.
+
+> Run this command only once, to install all the project dependencies in `test-app` folder. You also need to run it if the dependencies of your tested project have changed.
 
 ``` sh
-# npm run testsetup -- arg1
+# npm run testsetup:clean -- arg1
 # e.g.
-npm run testsetup -- ../flowershow
+npm run testsetup:clean -- ../flowershow
 ```
 
-The script will:
-1. Copy the Flowershow template to `test-app` directory.
-2. Replace its `/content` folder with `/fixtures/content`.
-3. Install the dependencies of the copied template and build it.
+### `testsetup`
 
-Then run `test` script.
+There is no need to run `testsetup:clean` each time you make some changes to the template or to the fixture content folder as it would remove the whole `test-app` folder, copy the template and install all the dependencies over again. The `testupdate` script will overwrite any changed files, leaving `node_modules` untouched.
+
+Note, it is wrapped in the `pretest` script, so it will run each time you run the `test` script - no need to run it manually.
+
+``` sh
+npm run testupdate
+```
+
+### `test`
+
+Run tests:
 
 ``` sh
 npm run test
 ```
 
 See [this Playwright docs page](https://playwright.dev/docs/test-cli) to learn about different playwright CLI options, e.g. how to run only selected tests.
-
-## Refresh `test-app/content` folder
-
-There is no need to run `testsetup` each time you add/edit some test pages to the fixture content folder. Run `testupdate` command instead, to update `test-app/content` folder.
-
-``` sh
-npm run testupdate
-```
 
 ## Use this project in your Flowershow-based project's CI
 

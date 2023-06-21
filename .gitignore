@@ -7,3 +7,4 @@ node_modules/
 /playwright-report/
 /playwright/.cache/
 /test-app
+test-app-dir
