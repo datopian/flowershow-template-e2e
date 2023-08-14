@@ -37,9 +37,15 @@ test.describe.parallel("wiki links", () => {
     await expect(page).toHaveURL("/fixture-page#planned-features");
   });
 
-  test("link to image file", async ({ page }) => {
-    const link = page.locator("#wikiLink-image > p > img");
+  test("parses an image embed", async ({ page }) => {
+    const link = page.locator("#image-embed > p > img");
     await expect(link).toHaveAttribute("src", "/assets/images/parktest.png");
+  });
+
+  test("parses a note embed (temporarily as a regular wiki link)", async ({ page }) => {
+    const link = page.locator("#note-embed > p > a");
+    await link.click();
+    await expect(page).toHaveURL("/fixture-page");
   });
 });
 

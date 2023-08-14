@@ -31,8 +31,12 @@ type: Page
 [[fixture-page#Planned features|🚧 working on...]]
 </div>
 
-<div id="wikiLink-image">
+<div id="image-embed">
 ![[parktest.png]]
+</div>
+
+<div id="note-embed">
+![[fixture-page]]
 </div>
 
 <div id="break">
