@@ -23,6 +23,10 @@ type: Page
 [[fixture-page|Some Page]]
 </div>
 
+<div id="wikiLink-with-accents">
+[[accênts-pagéàã|Page with accents]]
+</div>
+
 <div id="wikiLink-heading">
 [[fixture-page#Planned features]]
 </div>

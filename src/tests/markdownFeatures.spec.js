@@ -22,6 +22,13 @@ test.describe.parallel("wiki links", () => {
     await expect(page).toHaveURL("/fixture-page");
   });
 
+  test("parses a wiki link with accents", async ({ page }) => {
+    const link = page.locator("#wikiLink-with-accents > p > a");
+    await expect(link).toContainText("Page with accents");
+    await link.click();
+    await expect(page).toHaveURL("/accênts-pagéàã");
+  });
+
   test("parses a wiki link with header", async ({ page }) => {
     const link = page.locator("#wikiLink-heading > p > a");
     await link.click();
